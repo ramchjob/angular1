@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="customer.css">
+<script src="customer.js"></script>
+
+<body>
+ <div ng-app="myApp" ng-controller="customersCtrl">
+    <div >
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email </th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="x in names">
+                <td>{{ x.id }}</td>
+                <td>{{ x.firstName }}</td>
+                <td>{{ x.lastName }}</td>
+                <td>{{ x.email }}</td>
+                <td>{{ x.status }}</td>
+                <td> 
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class ="customer-form">
+
+        <input ng-model="firstName" placeholder="Enter First Name "></input>
+        <input ng-model="lastName" placeholder="Enter Last Name "></input>
+        <input ng-model="email" placeholder="Enter Email "></input>
+
+        <br/><br/>
+        <input type="button" value="Create" ng-click="postdata(firstName, lastName, email)" /> <br/><br/>
+        <p ng-hide="isCustomerCreated" >{{msg}}</p>
+    </div>
+
+</div>
+
+</body>
+
+</html>
